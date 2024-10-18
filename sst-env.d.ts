@@ -9,7 +9,11 @@ declare module "sst" {
       "type": "sst.aws.ApiGatewayV2"
       "url": string
     }
-    "MyBucket": {
+    "Notes": {
+      "name": string
+      "type": "sst.aws.Dynamo"
+    }
+    "Uploads": {
       "name": string
       "type": "sst.aws.Bucket"
     }
