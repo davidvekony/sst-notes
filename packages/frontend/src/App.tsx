@@ -1,16 +1,17 @@
 import { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
 import { Auth } from "aws-amplify";
-import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
-import { LinkContainer } from "react-router-bootstrap";
-import Routes from "./Routes.tsx";
-import { AppContext, AppContextType } from "./lib/contextLib";
 import { onError } from "./lib/errorLib";
+import Navbar from "react-bootstrap/Navbar";
+import { useNavigate } from "react-router-dom";
+import { LinkContainer } from "react-router-bootstrap";
+import { AppContext, AppContextType } from "./lib/contextLib";
+import Routes from "./Routes.tsx";
 import "./App.css";
 
 function App() {
   const nav = useNavigate();
+
   const [isAuthenticating, setIsAuthenticating] = useState(true);
   const [isAuthenticated, userHasAuthenticated] = useState(false);
 

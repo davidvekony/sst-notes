@@ -2,10 +2,6 @@ import { cloneElement, ReactElement } from "react";
 import { Navigate } from "react-router-dom";
 import { useAppContext } from "../lib/contextLib";
 
-interface Props {
-  children: ReactElement;
-}
-
 function querystring(name: string, url = window.location.href) {
   const parsedName = name.replace(/[[]]/g, "\\$&");
   const regex = new RegExp(`[?&]${parsedName}(=([^&#]*)|&|#|$)`, "i");
@@ -16,6 +12,10 @@ function querystring(name: string, url = window.location.href) {
   }
 
   return decodeURIComponent(results[2].replace(/\+/g, " "));
+}
+
+interface Props {
+  children: ReactElement;
 }
 
 export default function UnauthenticatedRoute(props: Props) {

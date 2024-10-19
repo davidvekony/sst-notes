@@ -1,12 +1,12 @@
 import React, { useRef, useState } from "react";
-import Form from "react-bootstrap/Form";
-import Stack from "react-bootstrap/Stack";
-import { useNavigate } from "react-router-dom";
 import { API } from "aws-amplify";
-import LoaderButton from "../components/LoaderButton";
-import { onError } from "../lib/errorLib";
-import { s3Upload } from "../lib/awsLib";
+import Form from "react-bootstrap/Form";
 import { NoteType } from "../types/note";
+import { s3Upload } from "../lib/awsLib";
+import Stack from "react-bootstrap/Stack";
+import { onError } from "../lib/errorLib";
+import { useNavigate } from "react-router-dom";
+import LoaderButton from "../components/LoaderButton";
 import config from "../config";
 import "./NewNote.css";
 

@@ -1,9 +1,9 @@
-import { StrictMode } from "react";
-import { createRoot } from "react-dom/client";
-import { BrowserRouter as Router } from "react-router-dom";
+import React from "react";
 import { Amplify } from "aws-amplify";
-import App from "./App.tsx";
+import ReactDOM from "react-dom/client";
+import { BrowserRouter as Router } from "react-router-dom";
 import config from "./config.ts";
+import App from "./App.tsx";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./index.css";
 
@@ -23,7 +23,7 @@ Amplify.configure({
   API: {
     endpoints: [
       {
-        name: "sst-notes",
+        name: "notes",
         endpoint: config.apiGateway.URL,
         region: config.apiGateway.REGION,
       },
@@ -31,10 +31,10 @@ Amplify.configure({
   },
 });
 
-createRoot(document.getElementById("root")!).render(
-  <StrictMode>
+ReactDOM.createRoot(document.getElementById("root")!).render(
+  <React.StrictMode>
     <Router>
       <App />
     </Router>
-  </StrictMode>
+  </React.StrictMode>
 );

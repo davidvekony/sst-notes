@@ -1,23 +1,23 @@
 import React, { useRef, useState, useEffect } from "react";
-import { useParams, useNavigate } from "react-router-dom";
-import { API, Storage } from "aws-amplify";
-import Form from "react-bootstrap/Form";
-import Stack from "react-bootstrap/Stack";
-import LoaderButton from "../components/LoaderButton";
-import { onError } from "../lib/errorLib";
-import { s3Upload } from "../lib/awsLib";
 import config from "../config";
+import Form from "react-bootstrap/Form";
 import { NoteType } from "../types/note";
+import { s3Upload } from "../lib/awsLib";
+import { onError } from "../lib/errorLib";
+import Stack from "react-bootstrap/Stack";
+import { API, Storage } from "aws-amplify";
+import LoaderButton from "../components/LoaderButton";
+import { useParams, useNavigate } from "react-router-dom";
 import "./Notes.css";
 
 export default function Notes() {
   const file = useRef<null | File>(null);
   const { id } = useParams();
   const nav = useNavigate();
-  const [isLoading, setIsLoading] = useState(false);
-  const [isDeleting, setIsDeleting] = useState(false);
   const [note, setNote] = useState<null | NoteType>(null);
   const [content, setContent] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
+  const [isDeleting, setIsDeleting] = useState(false);
 
   useEffect(() => {
     function loadNote() {

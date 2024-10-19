@@ -3,7 +3,7 @@
 export default $config({
   app(input) {
     return {
-      name: "notes",
+      name: "sst-notes",
       removal: "remove",
       home: "aws",
     };
