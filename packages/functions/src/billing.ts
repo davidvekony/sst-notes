@@ -8,9 +8,11 @@ export const main = Util.handler(async (event) => {
   const amount = Billing.compute(storage);
   const description = "Scratch charge";
 
-  const stripe = new Stripe(Resource.StripeSecretKey.value, {
-    apiVersion: "2024-09-30.acacia",
-  });
+  const stripe = new Stripe(
+    // Load our secret key
+    Resource.StripeSecretKey.value,
+    { apiVersion: "2024-09-30.acacia" }
+  );
 
   await stripe.charges.create({
     source,

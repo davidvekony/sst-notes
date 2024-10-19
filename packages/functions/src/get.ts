@@ -8,9 +8,11 @@ const dynamoDb = DynamoDBDocumentClient.from(new DynamoDBClient({}));
 export const main = Util.handler(async (event) => {
   const params = {
     TableName: Resource.Notes.name,
+    // 'Key' defines the partition key and sort key of
+    // the item to be retrieved
     Key: {
       userId: event.requestContext.authorizer?.iam.cognitoIdentity.identityId,
-      noteId: event.pathParameters?.id,
+      noteId: event?.pathParameters?.id, // The id of the note from the path
     },
   };
 
@@ -19,5 +21,6 @@ export const main = Util.handler(async (event) => {
     throw new Error("Item not found.");
   }
 
+  // Return the retrieved item
   return JSON.stringify(result.Item);
 });
