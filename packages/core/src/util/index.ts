@@ -8,6 +8,7 @@ export module Util {
       let body: string, statusCode: number;
 
       try {
+        // Run the Lambda
         body = await lambda(event, context);
         statusCode = 200;
       } catch (error) {
@@ -17,6 +18,7 @@ export module Util {
         });
       }
 
+      // Return HTTP response
       return {
         body,
         statusCode,
