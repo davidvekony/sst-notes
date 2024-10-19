@@ -1,15 +1,16 @@
 import React, { useState } from "react";
+import { Auth } from "aws-amplify";
 import Form from "react-bootstrap/Form";
 import Stack from "react-bootstrap/Stack";
-import LoaderButton from "../components/LoaderButton.tsx";
-import { Auth } from "aws-amplify";
-import { useAppContext } from "../lib/contextLib";
 import { onError } from "../lib/errorLib";
 import { useFormFields } from "../lib/hooksLib";
+import { useAppContext } from "../lib/contextLib";
+import LoaderButton from "../components/LoaderButton.tsx";
 import "./Login.css";
 
 export default function Login() {
   const { userHasAuthenticated } = useAppContext();
+
   const [fields, handleFieldChange] = useFormFields({
     email: "",
     password: "",

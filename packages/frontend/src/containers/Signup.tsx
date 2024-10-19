@@ -1,13 +1,13 @@
 import React, { useState } from "react";
+import { Auth } from "aws-amplify";
 import Form from "react-bootstrap/Form";
 import Stack from "react-bootstrap/Stack";
-import { useNavigate } from "react-router-dom";
-import { Auth } from "aws-amplify";
 import { onError } from "../lib/errorLib";
-import { ISignUpResult } from "amazon-cognito-identity-js";
+import { useNavigate } from "react-router-dom";
 import { useFormFields } from "../lib/hooksLib";
 import { useAppContext } from "../lib/contextLib";
 import LoaderButton from "../components/LoaderButton";
+import { ISignUpResult } from "amazon-cognito-identity-js";
 import "./Signup.css";
 
 export default function Signup() {
